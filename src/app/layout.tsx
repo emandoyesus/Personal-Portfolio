@@ -18,7 +18,7 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Emandoyesus Tesfaye — Full Stack Developer",
+  title: "Emandoyesus Tesfaye",
   description:
     "Full-Stack Web & Mobile Developer and Software Engineering student at Mekelle University. Building practical, fast web applications with React, Next.js, TypeScript, Node.js and mobile apps for Android & iOS.",
   keywords: [
