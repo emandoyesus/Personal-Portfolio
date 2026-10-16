@@ -94,23 +94,27 @@ export default function ProjectShowcase() {
           <p className="font-sans text-base sm:text-lg text-muted">
             Real applications built and shipped to production for real users and organizations.
           </p>
+          <div className="inline-flex lg:hidden items-center gap-1.5 text-xs font-mono text-accent/80 mt-4 select-none">
+            <span>Swipe projects to explore</span>
+            <span className="animate-pulse">→</span>
+          </div>
         </motion.div>
 
-        {/* 2-Project Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        {/* 1-Row Swipe on Mobile / 2-Column Grid on Desktop */}
+        <div className="flex flex-row overflow-x-auto lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 lg:mx-0 lg:px-0 pb-6 lg:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 lg:after:hidden">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{
                 duration: 0.65,
                 ease: [0.16, 1, 0.3, 1],
                 delay: index * 0.15,
               }}
               whileHover={{ y: -6, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
-              className="group/card flex flex-col justify-between bg-card p-6 sm:p-7 border border-hairline relative transition-colors duration-300 hover:border-accent/40 dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.12)]"
+              className="group/card flex flex-col justify-between bg-card p-6 sm:p-7 border border-hairline relative transition-colors duration-300 hover:border-accent/40 dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.12)] w-[86vw] sm:w-[500px] lg:w-auto shrink-0 snap-start"
             >
               <div>
                 {/* Browser Window Mockup Frame with Real Thumbnail */}

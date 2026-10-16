@@ -97,16 +97,20 @@ export default function ServicesSection() {
           <p className="font-sans text-base sm:text-lg text-muted">
             Direct capabilities and specialized engineering solutions for real-world products.
           </p>
+          <div className="inline-flex md:hidden items-center gap-1.5 text-xs font-mono text-accent/80 mt-4 select-none">
+            <span>Swipe services to explore</span>
+            <span className="animate-pulse">→</span>
+          </div>
         </motion.div>
 
-        {/* 3x2 Grid of Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 1-Row Swipe on Mobile / 2-3 Column Grid on Desktop */}
+        <div className="flex flex-row overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 md:mx-0 md:px-0 pb-6 md:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 md:after:hidden">
           {services.map((svc, index) => (
             <motion.div
               key={svc.num}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{
                 duration: 0.55,
                 ease: [0.16, 1, 0.3, 1],
@@ -116,7 +120,7 @@ export default function ServicesSection() {
                 y: -5,
                 transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
               }}
-              className="group relative bg-card p-7 border border-hairline transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.8)] flex flex-col justify-between"
+              className="group relative bg-card p-6 sm:p-7 border border-hairline transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.8)] flex flex-col justify-between w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-start"
             >
               <div>
                 {/* Header row */}
