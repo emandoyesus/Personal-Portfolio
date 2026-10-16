@@ -104,7 +104,7 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* 1-Row Swipe on Mobile / 2-3 Column Grid on Desktop */}
-        <div className="flex flex-row overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 md:mx-0 md:px-0 pb-6 md:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 md:after:hidden">
+        <div id="services-cards-container" className="flex flex-row overflow-x-auto md:overflow-visible md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 md:mx-0 md:px-0 pt-2.5 pb-6 md:pt-1 md:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 md:after:hidden">
           {services.map((svc, index) => (
             <motion.div
               key={svc.num}

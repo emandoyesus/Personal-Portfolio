@@ -101,7 +101,7 @@ export default function ProjectShowcase() {
         </motion.div>
 
         {/* 1-Row Swipe on Mobile / 2-Column Grid on Desktop */}
-        <div className="flex flex-row overflow-x-auto lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 lg:mx-0 lg:px-0 pb-6 lg:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 lg:after:hidden">
+        <div id="projects-cards-container" className="flex flex-row overflow-x-auto lg:overflow-visible lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 lg:mx-0 lg:px-0 pt-2.5 pb-6 lg:pt-1 lg:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 lg:after:hidden">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
