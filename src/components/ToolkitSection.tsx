@@ -39,7 +39,7 @@ export default function ToolkitSection() {
   return (
     <section
       id="toolkit"
-      className="stack relative z-10 py-20 sm:py-28 overflow-hidden border-t border-hairline bg-surface/20"
+      className="stack relative z-10 py-16 sm:py-28 overflow-hidden border-t border-hairline bg-surface/20"
       aria-labelledby="stack-h"
     >
       {/* Centered subtle ambient glow */}
@@ -48,11 +48,11 @@ export default function ToolkitSection() {
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#181c66]/20 blur-[120px] rounded-full -z-10"
       />
 
-      <div className="shell max-w-[1240px] mx-auto px-6 sm:px-10 mb-12 sm:mb-16">
+      <div className="shell max-w-[1240px] mx-auto px-6 sm:px-10 mb-10 sm:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="stack__head flex flex-col items-center text-center max-w-[700px] mx-auto"
         >
@@ -75,7 +75,7 @@ export default function ToolkitSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         className="stack__bands relative w-full flex flex-col gap-3 sm:gap-4 [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]"
       >

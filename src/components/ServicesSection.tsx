@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef } from "react";
 import {
   Globe,
   Smartphone,
@@ -77,6 +78,30 @@ const services: ServiceItem[] = [
 ];
 
 export default function ServicesSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeService, setActiveService] = useState(0);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, clientWidth } = scrollRef.current;
+    const cardWidth = clientWidth * 0.82;
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveService(Math.min(Math.max(0, index), services.length - 1));
+  };
+
+  const scrollToService = (index: number) => {
+    if (!scrollRef.current) return;
+    const cards = scrollRef.current.children;
+    if (cards[index]) {
+      (cards[index] as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        inline: "start",
+        block: "nearest",
+      });
+      setActiveService(index);
+    }
+  };
+
   return (
     <section id="services" className="relative z-10 py-24 sm:py-32 px-6 sm:px-10">
       <div className="max-w-[1200px] mx-auto">
@@ -104,7 +129,12 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* 1-Row Swipe on Mobile / 2-3 Column Grid on Desktop */}
-        <div id="services-cards-container" className="flex flex-row overflow-x-auto md:overflow-visible md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 md:mx-0 md:px-0 pt-2.5 pb-6 md:pt-1 md:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 md:after:hidden">
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          id="services-cards-container"
+          className="flex flex-row overflow-x-auto md:overflow-visible md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 md:mx-0 md:px-0 pt-2.5 pb-6 md:pt-1 md:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 md:after:hidden"
+        >
           {services.map((svc, index) => (
             <motion.div
               key={svc.num}
@@ -120,7 +150,7 @@ export default function ServicesSection() {
                 y: -5,
                 transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
               }}
-              className="group relative bg-card p-6 sm:p-7 border border-hairline transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.8)] flex flex-col justify-between w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-start"
+              className="group relative bg-card p-5 sm:p-7 border border-hairline transition-colors duration-300 hover:border-accent/40 hover:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.8)] flex flex-col justify-between w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-start"
             >
               <div>
                 {/* Header row */}
@@ -171,6 +201,23 @@ export default function ServicesSection() {
                 )}
               </div>
             </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile Swipe Indicators & Dots (hidden on md+ screens) */}
+        <div className="flex md:hidden items-center justify-center gap-1.5 pt-5 select-none" aria-label="Services pagination">
+          {services.map((svc, idx) => (
+            <button
+              key={`svc-dot-${svc.num}`}
+              type="button"
+              onClick={() => scrollToService(idx)}
+              aria-label={`Go to service ${svc.num}: ${svc.title}`}
+              className={`h-1.5 transition-all duration-300 rounded-full cursor-pointer ${
+                activeService === idx
+                  ? "w-6 bg-accent"
+                  : "w-2 bg-hairline-strong hover:bg-muted"
+              }`}
+            />
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef } from "react";
 import { ArrowUpRight, ExternalLink, CheckCircle2, Lock, Eye } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -69,6 +70,29 @@ const projects: RealProject[] = [
 ];
 
 export default function ProjectShowcase() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeProject, setActiveProject] = useState(0);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, clientWidth } = scrollRef.current;
+    const index = Math.round(scrollLeft / (clientWidth * 0.85));
+    setActiveProject(Math.min(Math.max(0, index), projects.length - 1));
+  };
+
+  const scrollToProject = (index: number) => {
+    if (!scrollRef.current) return;
+    const cards = scrollRef.current.children;
+    if (cards[index]) {
+      (cards[index] as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        inline: "start",
+        block: "nearest",
+      });
+      setActiveProject(index);
+    }
+  };
+
   return (
     <section id="projects" className="relative z-10 py-24 sm:py-32 px-6 sm:px-10 overflow-hidden">
       {/* Soft atmospheric ambient transition glow from hero #181c66 */}
@@ -101,7 +125,12 @@ export default function ProjectShowcase() {
         </motion.div>
 
         {/* 1-Row Swipe on Mobile / 2-Column Grid on Desktop */}
-        <div id="projects-cards-container" className="flex flex-row overflow-x-auto lg:overflow-visible lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 lg:mx-0 lg:px-0 pt-2.5 pb-6 lg:pt-1 lg:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 lg:after:hidden">
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          id="projects-cards-container"
+          className="flex flex-row overflow-x-auto lg:overflow-visible lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch -mx-6 px-6 sm:-mx-10 sm:px-10 lg:mx-0 lg:px-0 pt-2.5 pb-6 lg:pt-1 lg:pb-0 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden after:content-[''] after:shrink-0 after:w-6 sm:after:w-10 lg:after:hidden"
+        >
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -114,7 +143,7 @@ export default function ProjectShowcase() {
                 delay: index * 0.15,
               }}
               whileHover={{ y: -6, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } }}
-              className="group/card flex flex-col justify-between bg-card p-6 sm:p-7 border border-hairline relative transition-colors duration-300 hover:border-accent/40 dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.12)] w-[86vw] sm:w-[500px] lg:w-auto shrink-0 snap-start"
+              className="group/card flex flex-col justify-between bg-card p-5 sm:p-7 border border-hairline relative transition-colors duration-300 hover:border-accent/40 dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.12)] w-[86vw] sm:w-[500px] lg:w-auto shrink-0 snap-start"
             >
               <div>
                 {/* Browser Window Mockup Frame with Real Thumbnail */}
@@ -212,6 +241,23 @@ export default function ProjectShowcase() {
                 </div>
               </div>
             </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile Swipe Indicators & Dots (hidden on lg screens) */}
+        <div className="flex lg:hidden items-center justify-center gap-2 pt-5 select-none" aria-label="Projects pagination">
+          {projects.map((proj, idx) => (
+            <button
+              key={`proj-dot-${proj.title}`}
+              type="button"
+              onClick={() => scrollToProject(idx)}
+              aria-label={`Go to project ${idx + 1}: ${proj.title}`}
+              className={`h-1.5 transition-all duration-300 rounded-full cursor-pointer ${
+                activeProject === idx
+                  ? "w-8 bg-accent"
+                  : "w-2.5 bg-hairline-strong hover:bg-muted"
+              }`}
+            />
           ))}
         </div>
       </div>

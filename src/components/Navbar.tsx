@@ -94,11 +94,11 @@ export default function Navbar() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.92 }}
-            className="grid size-9 place-items-center border border-hairline bg-surface text-chalk transition-colors hover:border-hairline-strong hover:text-accent md:hidden"
+            className="grid size-10 place-items-center border border-hairline bg-surface text-chalk transition-colors hover:border-hairline-strong hover:text-accent md:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
           >
-            {isOpen ? <X size={17} /> : <Menu size={17} />}
+            {isOpen ? <X size={18} /> : <Menu size={18} />}
           </motion.button>
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden bg-ink/98 px-6 py-5 backdrop-blur-2xl md:hidden shadow-2xl border-b border-hairline"
+            className="overflow-hidden bg-[#080808] dark:bg-[#070a12] px-6 py-5 md:hidden shadow-2xl border-b border-hairline"
           >
             <motion.nav
               aria-label="Mobile Navigation"
@@ -121,7 +121,7 @@ export default function Navbar() {
                 open: { transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
                 closed: {},
               }}
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-1"
             >
               {navLinks.map((link) => (
                 <motion.a
@@ -133,7 +133,7 @@ export default function Navbar() {
                     closed: { opacity: 0, x: -10 },
                   }}
                   transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center justify-between border-b border-hairline/30 py-3 font-mono text-sm tracking-wider uppercase text-muted transition-colors hover:text-accent last:border-none"
+                  className="flex items-center justify-between border-b border-hairline/30 py-3.5 font-mono text-sm tracking-wider uppercase text-muted transition-colors hover:text-accent active:text-accent last:border-none"
                 >
                   <span>{link.name}</span>
                   <ArrowUpRight size={14} className="text-muted/60" />
@@ -150,7 +150,7 @@ export default function Navbar() {
                   closed: { opacity: 0, x: -10 },
                 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="flex items-center justify-between border-t border-hairline/30 pt-3 font-mono text-sm tracking-wider uppercase text-accent transition-colors"
+                className="flex items-center justify-between border-t border-hairline/30 pt-4 pb-1 font-mono text-sm tracking-wider uppercase text-accent transition-colors active:opacity-80"
               >
                 <span className="flex items-center gap-2">
                   <Download size={14} />
@@ -160,7 +160,7 @@ export default function Navbar() {
               </motion.a>
 
               {/* Theme switcher row in mobile menu */}
-              <div className="flex items-center justify-between border-t border-hairline/30 pt-3 font-mono text-xs uppercase tracking-wider text-muted">
+              <div className="flex items-center justify-between border-t border-hairline/30 pt-4 font-mono text-xs uppercase tracking-wider text-muted">
                 <span>Theme Mode</span>
                 <ThemeToggle />
               </div>

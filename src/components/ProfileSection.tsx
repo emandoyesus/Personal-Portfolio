@@ -221,13 +221,13 @@ export default function ProfileSection() {
               <button
                 type="button"
                 onClick={() => setActiveTab("about")}
-                className={`relative flex-1 py-4 px-4 text-left font-sans text-sm font-medium transition-colors border-r border-hairline flex items-center gap-2 ${
+                className={`relative flex-1 py-3.5 sm:py-4 px-2 sm:px-4 text-center sm:text-left font-sans text-xs sm:text-sm font-medium transition-colors border-r border-hairline flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 ${
                   activeTab === "about"
                     ? "text-accent bg-card"
                     : "text-muted hover:text-chalk"
                 }`}
               >
-                <span className="font-mono text-xs opacity-60">01</span>
+                <span className="font-mono text-[11px] sm:text-xs opacity-60">01</span>
                 <span>About</span>
                 {activeTab === "about" && (
                   <motion.div
@@ -241,14 +241,14 @@ export default function ProfileSection() {
               <button
                 type="button"
                 onClick={() => setActiveTab("stack")}
-                className={`relative flex-1 py-4 px-4 text-left font-sans text-sm font-medium transition-colors border-r border-hairline flex items-center gap-2 ${
+                className={`relative flex-1 py-3.5 sm:py-4 px-2 sm:px-4 text-center sm:text-left font-sans text-xs sm:text-sm font-medium transition-colors border-r border-hairline flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 ${
                   activeTab === "stack"
                     ? "text-accent bg-card"
                     : "text-muted hover:text-chalk"
                 }`}
               >
-                <span className="font-mono text-xs opacity-60">02</span>
-                <span>Skills &amp; Stack</span>
+                <span className="font-mono text-[11px] sm:text-xs opacity-60">02</span>
+                <span className="truncate">Skills<span className="hidden sm:inline"> &amp; Stack</span></span>
                 {activeTab === "stack" && (
                   <motion.div
                     layoutId="activeTabUnderline"
@@ -261,14 +261,14 @@ export default function ProfileSection() {
               <button
                 type="button"
                 onClick={() => setActiveTab("education")}
-                className={`relative flex-1 py-4 px-4 text-left font-sans text-sm font-medium transition-colors flex items-center gap-2 ${
+                className={`relative flex-1 py-3.5 sm:py-4 px-2 sm:px-4 text-center sm:text-left font-sans text-xs sm:text-sm font-medium transition-colors flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 ${
                   activeTab === "education"
                     ? "text-accent bg-card"
                     : "text-muted hover:text-chalk"
                 }`}
               >
-                <span className="font-mono text-xs opacity-60">03</span>
-                <span>Education &amp; Certs</span>
+                <span className="font-mono text-[11px] sm:text-xs opacity-60">03</span>
+                <span className="truncate">Education<span className="hidden sm:inline"> &amp; Certs</span></span>
                 {activeTab === "education" && (
                   <motion.div
                     layoutId="activeTabUnderline"

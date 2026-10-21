@@ -51,6 +51,14 @@ export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [footerHeight, setFooterHeight] = useState<number | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
+  }, []);
 
   // Measure exact footer content height responsively
   useEffect(() => {
@@ -77,7 +85,7 @@ export default function Footer() {
     offset: ["start end", "end end"],
   });
 
-  // Pronounced cinematic parallax sticky reveal transforms
+  // Pronounced cinematic parallax sticky reveal transforms (desktop only)
   const y = useTransform(scrollYProgress, [0, 1], [-100, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.65, 1], [0.2, 0.8, 1]);
   const scale = useTransform(scrollYProgress, [0, 1], [0.94, 1]);
@@ -90,36 +98,42 @@ export default function Footer() {
     <div
       ref={containerRef}
       id="footer-reveal-container"
-      className="relative w-full min-h-[620px] md:min-h-[420px]"
+      className="relative w-full md:min-h-[420px]"
       style={{
-        clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
-        ...(footerHeight ? { height: `${footerHeight}px` } : {}),
+        clipPath: isDesktop ? "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" : "none",
+        ...(isDesktop && footerHeight ? { height: `${footerHeight}px` } : {}),
       }}
     >
       <div
-        className={`fixed bottom-0 left-0 right-0 w-full z-0 overflow-hidden ${
-          isInView ? "pointer-events-auto" : "pointer-events-none"
+        className={`${
+          isDesktop
+            ? `fixed bottom-0 left-0 right-0 w-full z-0 overflow-hidden ${
+                isInView ? "pointer-events-auto" : "pointer-events-none"
+              }`
+            : "relative w-full z-10"
         }`}
         style={{
-          height: footerHeight ? `${footerHeight}px` : "auto",
+          height: isDesktop && footerHeight ? `${footerHeight}px` : "auto",
         }}
       >
         <motion.footer
           ref={contentRef}
-          style={{ y, opacity, scale }}
-          className="relative w-full border-t border-hairline dark:bg-black bg-surface/95 pt-16 pb-12 px-6 sm:px-10 overflow-hidden shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.08)] dark:shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.95)]"
+          style={isDesktop ? { y, opacity, scale } : {}}
+          className="relative w-full border-t border-hairline dark:bg-black bg-surface/95 pt-12 md:pt-16 pb-12 px-6 sm:px-10 overflow-hidden shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.08)] dark:shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.95)]"
         >
-          {/* Top Curtain Shadow: soft physical depth illusion as page slides off */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute top-0 left-0 right-0 h-10 bg-gradient-to-b dark:from-black/60 from-black/[0.04] to-transparent z-10"
-          />
+          {/* Top Curtain Shadow: soft physical depth illusion as page slides off (desktop only) */}
+          {isDesktop && (
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute top-0 left-0 right-0 h-10 bg-gradient-to-b dark:from-black/60 from-black/[0.04] to-transparent z-10"
+            />
+          )}
 
           <div className="max-w-[1200px] mx-auto flex flex-col gap-10">
             {/* Top Grid: Symmetrically spaced columns matching reference image */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-hairline/40 items-start">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-hairline/40 items-start">
               {/* Column 1: Identity & Bio */}
-              <div className="flex flex-col">
+              <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
                 <div className="flex items-center gap-3">
                   <span className="flex size-9 items-center justify-center border border-hairline bg-surface/50 text-accent font-serif font-bold text-sm">
                     ET
@@ -197,12 +211,12 @@ export default function Footer() {
               </div>
 
               {/* Column 4: Actions */}
-              <div className="flex flex-col">
+              <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
                 <p className="font-mono text-xs uppercase tracking-wider text-accent font-semibold mb-4">
                   ACTIONS
                 </p>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col sm:flex-row md:flex-col gap-3">
                   <motion.a
                     href="/cv.pdf"
                     download="Emandoyesus_CV.pdf"

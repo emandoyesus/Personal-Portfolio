@@ -193,7 +193,7 @@ export default function ContactSection() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Alex Smith"
-                        className="w-full bg-card border border-hairline focus:border-accent/70 focus:outline-none px-4 py-3 text-sm font-sans text-chalk placeholder:text-dim transition-all"
+                        className="w-full bg-card border border-hairline focus:border-accent/70 focus:outline-none px-4 py-3 text-base sm:text-sm font-sans text-chalk placeholder:text-dim transition-all"
                       />
                     </div>
 
@@ -211,7 +211,7 @@ export default function ContactSection() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="alex@company.com"
-                        className="w-full bg-card border border-hairline focus:border-accent/70 focus:outline-none px-4 py-3 text-sm font-sans text-chalk placeholder:text-dim transition-all"
+                        className="w-full bg-card border border-hairline focus:border-accent/70 focus:outline-none px-4 py-3 text-base sm:text-sm font-sans text-chalk placeholder:text-dim transition-all"
                       />
                     </div>
 
@@ -229,7 +229,7 @@ export default function ContactSection() {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Hi Emandoyesus, I'd like to discuss a project..."
-                        className="w-full bg-card border border-hairline focus:border-accent/70 focus:outline-none p-4 text-sm font-sans text-chalk placeholder:text-dim resize-none transition-all"
+                        className="w-full bg-card border border-hairline focus:border-accent/70 focus:outline-none p-4 text-base sm:text-sm font-sans text-chalk placeholder:text-dim resize-none transition-all"
                       />
                     </div>
 
