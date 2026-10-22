@@ -12,6 +12,7 @@ interface ThemeToggleProps {
 export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isSwitching, setIsSwitching] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -28,13 +29,23 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
 
   const isDark = resolvedTheme === "dark";
 
+  const handleToggle = () => {
+    setIsSwitching(true);
+    document.documentElement.classList.add("theme-switching");
+    setTheme(isDark ? "light" : "dark");
+    setTimeout(() => {
+      setIsSwitching(false);
+      document.documentElement.classList.remove("theme-switching");
+    }, 500);
+  };
+
   return (
     <motion.button
       type="button"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      whileTap={{ scale: 0.92 }}
+      onClick={handleToggle}
+      whileTap={{ scale: 0.88 }}
       whileHover={{ y: -1 }}
-      className={`relative grid size-8 sm:size-9 place-items-center border border-hairline bg-surface/80 hover:bg-card hover:border-hairline-strong text-muted hover:text-accent-soft transition-colors duration-200 select-none cursor-pointer group ${className}`}
+      className={`relative grid size-8 sm:size-9 place-items-center border border-hairline bg-surface/80 hover:bg-card hover:border-hairline-strong text-muted hover:text-accent-soft transition-colors duration-200 select-none cursor-pointer group ${className} ${isSwitching ? "ring-2 ring-accent/40" : ""}`}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       title={isDark ? "Switch to light theme" : "Switch to dark theme"}
     >
@@ -63,6 +74,16 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
           </motion.span>
         )}
       </AnimatePresence>
+      
+      {isSwitching && (
+        <motion.span
+          initial={{ opacity: 0, scale: 0.3 }}
+          animate={{ opacity: 1, scale: 1.8 }}
+          exit={{ opacity: 0, scale: 2 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="absolute inset-0 rounded-[inherit] border-2 border-accent/50 pointer-events-none"
+        />
+      )}
     </motion.button>
   );
 }

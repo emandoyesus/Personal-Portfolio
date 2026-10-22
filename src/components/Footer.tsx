@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { MapPin } from "lucide-react";
 import {
   CatGithubIcon,
@@ -48,7 +47,6 @@ const socialLinks = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [footerHeight, setFooterHeight] = useState<number | null>(null);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -60,7 +58,6 @@ export default function Footer() {
     return () => window.removeEventListener("resize", checkDesktop);
   }, []);
 
-  // Measure exact footer content height responsively
   useEffect(() => {
     if (!contentRef.current) return;
     const updateHeight = () => {
@@ -78,181 +75,126 @@ export default function Footer() {
     };
   }, []);
 
-  const isInView = useInView(containerRef, { margin: "0px" });
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end end"],
-  });
-
-  // Pronounced cinematic parallax sticky reveal transforms (desktop only)
-  const y = useTransform(scrollYProgress, [0, 1], [-100, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.65, 1], [0.2, 0.8, 1]);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.94, 1]);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div
-      ref={containerRef}
-      id="footer-reveal-container"
-      className="relative w-full md:min-h-[420px]"
-      style={{
-        clipPath: isDesktop ? "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" : "none",
-        ...(isDesktop && footerHeight ? { height: `${footerHeight}px` } : {}),
-      }}
-    >
-      <div
-        className={`${
-          isDesktop
-            ? `fixed bottom-0 left-0 right-0 w-full z-0 overflow-hidden ${
-                isInView ? "pointer-events-auto" : "pointer-events-none"
-              }`
-            : "relative w-full z-10"
-        }`}
-        style={{
-          height: isDesktop && footerHeight ? `${footerHeight}px` : "auto",
-        }}
+    <div id="footer-reveal-container" className="relative w-full">
+      <footer
+        ref={contentRef}
+        className="relative w-full border-t border-hairline dark:bg-black bg-surface/95 pt-12 md:pt-16 pb-12 px-6 sm:px-10 overflow-hidden shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.08)] dark:shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.95)]"
       >
-        <motion.footer
-          ref={contentRef}
-          style={isDesktop ? { y, opacity, scale } : {}}
-          className="relative w-full border-t border-hairline dark:bg-black bg-surface/95 pt-12 md:pt-16 pb-12 px-6 sm:px-10 overflow-hidden shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.08)] dark:shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.95)]"
-        >
-          {/* Top Curtain Shadow: soft physical depth illusion as page slides off (desktop only) */}
-          {isDesktop && (
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute top-0 left-0 right-0 h-10 bg-gradient-to-b dark:from-black/60 from-black/[0.04] to-transparent z-10"
-            />
-          )}
-
-          <div className="max-w-[1200px] mx-auto flex flex-col gap-10">
-            {/* Top Grid: Symmetrically spaced columns matching reference image */}
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-hairline/40 items-start">
-              {/* Column 1: Identity & Bio */}
-              <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
-                <div className="flex items-center gap-3">
-                  <span className="flex size-9 items-center justify-center border border-hairline bg-surface/50 text-accent-soft font-serif font-bold text-sm">
-                    ET
+        <div className="max-w-[1200px] mx-auto flex flex-col gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-hairline/40 items-start">
+            <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
+              <div className="flex items-center gap-3">
+                <span className="flex size-9 items-center justify-center border border-hairline bg-surface/50 text-accent-soft font-serif font-bold text-sm">
+                  ET
+                </span>
+                <div>
+                  <span className="font-sans font-semibold text-chalk text-sm tracking-tight block">
+                    Emandoyesus Tesfaye
                   </span>
-                  <div>
-                    <span className="font-sans font-semibold text-chalk text-sm tracking-tight block">
-                      Emandoyesus Tesfaye
-                    </span>
-                    <span className="text-[11px] text-muted font-mono">
-                      Full Stack Developer
-                    </span>
-                  </div>
-                </div>
-
-                <p className="font-sans text-xs text-muted leading-relaxed mt-4 max-w-[260px]">
-                  Building practical, fast web applications and native mobile apps with modern, reliable engineering.
-                </p>
-
-                <div className="flex flex-col gap-2 pt-4 text-[11px] font-mono text-muted">
-                  <div className="inline-flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-emerald-500 shrink-0" />
-                    <span>Available for new projects</span>
-                  </div>
-                  <div className="inline-flex items-center gap-1.5">
-                    <MapPin size={12} className="text-accent-soft shrink-0" />
-                    <span>Mekelle, Ethiopia (UTC+3)</span>
-                  </div>
+                  <span className="text-[11px] text-muted font-mono">
+                    Full Stack Developer
+                  </span>
                 </div>
               </div>
 
-              {/* Column 2: Navigation */}
-              <div className="flex flex-col">
-                <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
-                  NAVIGATION
-                </p>
+              <p className="font-sans text-xs text-muted leading-relaxed mt-4 max-w-[260px]">
+                Building practical, fast web applications and native mobile apps with modern, reliable engineering.
+              </p>
 
-                <ul className="flex flex-col gap-3 text-xs font-sans text-muted">
-                  {navLinks.map((link) => (
-                    <li key={link.name}>
+              <div className="flex flex-col gap-2 pt-4 text-[11px] font-mono text-muted">
+                <div className="inline-flex items-center gap-2">
+                  <span className="size-2 rounded-full bg-emerald-500 shrink-0" />
+                  <span>Available for new projects</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5">
+                  <MapPin size={12} className="text-accent-soft shrink-0" />
+                  <span>Mekelle, Ethiopia (UTC+3)</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
+                NAVIGATION
+              </p>
+
+              <ul className="flex flex-col gap-3 text-xs font-sans text-muted">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <a href={link.href} className="hover:text-chalk transition-colors inline-block py-0.5">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-col">
+              <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
+                CONNECT
+              </p>
+
+              <ul className="flex flex-col gap-3 text-xs font-sans text-muted">
+                {socialLinks.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <li key={item.name}>
                       <a
-                        href={link.href}
-                        className="hover:text-chalk transition-colors inline-block py-0.5"
+                        href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="hover:text-chalk transition-colors inline-flex items-center gap-2.5 py-0.5 group"
                       >
-                        {link.name}
+                        <Icon className="size-3.5 text-muted group-hover:text-chalk transition-colors shrink-0" />
+                        <span>{item.name}</span>
                       </a>
                     </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Column 3: Connect & Socials */}
-              <div className="flex flex-col">
-                <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
-                  CONNECT
-                </p>
-
-                <ul className="flex flex-col gap-3 text-xs font-sans text-muted">
-                  {socialLinks.map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <li key={item.name}>
-                        <a
-                          href={item.href}
-                          target={item.href.startsWith("http") ? "_blank" : undefined}
-                          rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="hover:text-chalk transition-colors inline-flex items-center gap-2.5 py-0.5 group"
-                        >
-                          <Icon className="size-3.5 text-muted group-hover:text-chalk transition-colors shrink-0" />
-                          <span>{item.name}</span>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
-              {/* Column 4: Actions */}
-              <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
-                <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
-                  ACTIONS
-                </p>
-
-                <div className="flex flex-col sm:flex-row md:flex-col gap-3">
-                  <motion.a
-                    href="/cv.pdf"
-                    download="Emandoyesus_CV.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -1 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl border border-accent/40 hover:border-accent bg-card hover:bg-wash text-accent-soft font-sans font-medium text-xs tracking-tight shadow-[0_0_15px_-3px_var(--shadow-accent)] hover:shadow-[0_0_20px_-2px_var(--shadow-accent-strong)] transition-all w-full select-none cursor-pointer"
-                  >
-                    <BsFiletypePdf className="size-4 text-accent-soft transition-colors" />
-                    <span>Download Resume</span>
-                  </motion.a>
-
-                  <motion.button
-                    type="button"
-                    onClick={scrollToTop}
-                    whileHover={{ y: -1 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-hairline hover:border-black dark:hover:border-hairline-strong bg-transparent hover:bg-black dark:hover:bg-white/10 text-muted hover:text-white dark:hover:text-chalk font-mono text-xs transition-all w-full select-none cursor-pointer"
-                  >
-                    <span>↑</span>
-                    <span>Back to Top</span>
-                    <span>↑</span>
-                  </motion.button>
-                </div>
-              </div>
+                  );
+                })}
+              </ul>
             </div>
 
-            {/* Bottom Credits & Legal */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted">
-              <span>&copy; {currentYear} Emandoyesus Tesfaye.</span>
-              <span className="text-center sm:text-right">Built with Next.js</span>
+            <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
+              <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
+                ACTIONS
+              </p>
+
+              <div className="flex flex-col sm:flex-row md:flex-col gap-3">
+                <a
+                  href="/cv.pdf"
+                  download="Emandoyesus_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl border border-accent/40 hover:border-accent bg-card hover:bg-wash text-accent-soft font-sans font-medium text-xs tracking-tight shadow-[0_0_15px_-3px_var(--shadow-accent)] hover:shadow-[0_0_20px_-2px_var(--shadow-accent-strong)] transition-all w-full select-none cursor-pointer"
+                >
+                  <BsFiletypePdf className="size-4 text-accent-soft transition-colors" />
+                  <span>Download Resume</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={scrollToTop}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-hairline hover:border-black dark:hover:border-hairline-strong bg-transparent hover:bg-black dark:hover:bg-white/10 text-muted hover:text-white dark:hover:text-chalk font-mono text-xs transition-all w-full select-none cursor-pointer"
+                >
+                  <span>↑</span>
+                  <span>Back to Top</span>
+                  <span>↑</span>
+                </button>
+              </div>
             </div>
           </div>
-        </motion.footer>
-      </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted">
+            <span>&copy; {currentYear} Emandoyesus Tesfaye.</span>
+            <span className="text-center sm:text-right">Built with Next.js</span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

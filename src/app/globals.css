@@ -10,10 +10,38 @@
     scroll-behavior: smooth;
     background-color: rgb(var(--bg-ink-rgb));
     color: rgb(var(--text-chalk-rgb));
+    transition:
+      background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.theme-switching {
+    transition-duration: 0.5s;
   }
 
   body {
     @apply bg-ink text-chalk font-sans antialiased relative min-h-full flex flex-col selection:bg-accent/25 selection:text-chalk;
+    transition:
+      background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Smooth color transitions for themeable elements */
+  *, *::before, *::after {
+    transition:
+      background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Disable transitions for performance-sensitive elements */
+  .marquee__track,
+  .marquee__track *,
+  [style*="animation"],
+  [style*="animation"] * {
+    transition: none !important;
   }
 }
 
