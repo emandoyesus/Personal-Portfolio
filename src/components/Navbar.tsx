@@ -73,9 +73,9 @@ export default function Navbar() {
             aria-label="Download Emandoyesus Tesfaye's CV"
             whileHover={{ y: -1 }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-1.5 border border-hairline bg-surface/80 hover:border-hairline-strong hover:bg-card px-2.5 sm:px-3 py-1 font-mono text-[11px] text-chalk transition-all duration-200 hover:text-accent group"
+            className="inline-flex items-center gap-1.5 border border-hairline bg-surface/80 hover:border-hairline-strong hover:bg-card px-2.5 sm:px-3 py-1 font-mono text-[11px] text-chalk transition-all duration-200 hover:text-accent-soft group"
           >
-            <Download size={12} className="text-accent transition-transform duration-200 group-hover:-translate-y-0.5" />
+            <Download size={12} className="text-accent-soft transition-transform duration-200 group-hover:-translate-y-0.5" />
             <span className="hidden sm:inline">Download CV</span>
             <span className="sm:hidden">CV</span>
           </motion.a>
@@ -94,7 +94,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.92 }}
-            className="grid size-10 place-items-center border border-hairline bg-surface text-chalk transition-colors hover:border-hairline-strong hover:text-accent md:hidden"
+            className="grid size-10 place-items-center border border-hairline bg-surface text-chalk transition-colors hover:border-hairline-strong hover:text-accent-soft md:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
           >
@@ -111,7 +111,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden bg-[#080808] dark:bg-[#070a12] px-6 py-5 md:hidden shadow-2xl border-b border-hairline"
+            className="overflow-hidden bg-hero px-6 py-5 md:hidden shadow-2xl border-b border-hairline"
           >
             <motion.nav
               aria-label="Mobile Navigation"
@@ -133,7 +133,7 @@ export default function Navbar() {
                     closed: { opacity: 0, x: -10 },
                   }}
                   transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center justify-between border-b border-hairline/30 py-3.5 font-mono text-sm tracking-wider uppercase text-muted transition-colors hover:text-accent active:text-accent last:border-none"
+                  className="flex items-center justify-between border-b border-hairline/30 py-3.5 font-mono text-sm tracking-wider uppercase text-muted transition-colors hover:text-accent-soft active:text-accent-soft last:border-none"
                 >
                   <span>{link.name}</span>
                   <ArrowUpRight size={14} className="text-muted/60" />
@@ -150,13 +150,13 @@ export default function Navbar() {
                   closed: { opacity: 0, x: -10 },
                 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="flex items-center justify-between border-t border-hairline/30 pt-4 pb-1 font-mono text-sm tracking-wider uppercase text-accent transition-colors active:opacity-80"
+                className="flex items-center justify-between border-t border-hairline/30 pt-4 pb-1 font-mono text-sm tracking-wider uppercase text-accent-soft transition-colors active:opacity-80"
               >
                 <span className="flex items-center gap-2">
                   <Download size={14} />
                   Download CV
                 </span>
-                <ArrowUpRight size={14} className="text-accent/60" />
+                <ArrowUpRight size={14} className="text-accent-soft/60" />
               </motion.a>
 
               {/* Theme switcher row in mobile menu */}

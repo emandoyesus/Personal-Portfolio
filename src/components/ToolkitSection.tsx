@@ -45,7 +45,7 @@ export default function ToolkitSection() {
       {/* Centered subtle ambient glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#181c66]/20 blur-[120px] rounded-full -z-10"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent-deep/20 blur-[120px] rounded-full -z-10"
       />
 
       <div className="shell max-w-[1240px] mx-auto px-6 sm:px-10 mb-10 sm:mb-16">
@@ -56,7 +56,7 @@ export default function ToolkitSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="stack__head flex flex-col items-center text-center max-w-[700px] mx-auto"
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3 font-mono">
+          <p className="text-xs uppercase tracking-[0.25em] text-accent-soft mb-3 font-mono">
             The Toolkit
           </p>
           <h2

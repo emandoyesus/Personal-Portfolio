@@ -2,38 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root,
-.dark {
-  --bg-ink-rgb: 8 8 8;
-  --bg-surface-rgb: 15 15 15;
-  --bg-card-rgb: 19 19 19;
-  --bg-wash-rgb: 26 26 26;
-  --text-chalk-rgb: 244 243 240;
-  --text-muted-rgb: 136 136 136;
-  --text-dim-rgb: 85 85 85;
-  --accent-rgb: 112 126 255;
-  --border-hairline: rgba(255, 255, 255, 0.08);
-  --border-hairline-strong: rgba(255, 255, 255, 0.18);
-  --grid-line: rgba(46, 65, 130, 0.15);
-  --grain-opacity: 0.025;
-  color-scheme: dark;
-}
-
-.light {
-  --bg-ink-rgb: 226 226 223;
-  --bg-surface-rgb: 232 232 229;
-  --bg-card-rgb: 236 236 233;
-  --bg-wash-rgb: 218 218 215;
-  --text-chalk-rgb: 24 24 27;
-  --text-muted-rgb: 82 82 91;
-  --text-dim-rgb: 120 120 128;
-  --accent-rgb: 37 99 235;
-  --border-hairline: rgba(24, 24, 27, 0.08);
-  --border-hairline-strong: rgba(24, 24, 27, 0.16);
-  --grid-line: rgba(30, 41, 59, 0.075);
-  --grain-opacity: 0.045;
-  color-scheme: light;
-}
+/* Colour tokens (--bg-*, --text-*, --accent-*, --border-*, ...) are generated
+   from the active palette in src/lib/theme.ts and injected by the root layout. */
 
 @layer base {
   html {

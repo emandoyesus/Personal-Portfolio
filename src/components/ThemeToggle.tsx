@@ -34,7 +34,7 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       whileTap={{ scale: 0.92 }}
       whileHover={{ y: -1 }}
-      className={`relative grid size-8 sm:size-9 place-items-center border border-hairline bg-surface/80 hover:bg-card hover:border-hairline-strong text-muted hover:text-accent transition-colors duration-200 select-none cursor-pointer group ${className}`}
+      className={`relative grid size-8 sm:size-9 place-items-center border border-hairline bg-surface/80 hover:bg-card hover:border-hairline-strong text-muted hover:text-accent-soft transition-colors duration-200 select-none cursor-pointer group ${className}`}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       title={isDark ? "Switch to light theme" : "Switch to dark theme"}
     >
@@ -46,7 +46,7 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
             animate={{ opacity: 1, rotate: 0, scale: 1 }}
             exit={{ opacity: 0, rotate: 45, scale: 0.7 }}
             transition={{ duration: 0.2 }}
-            className="flex items-center justify-center text-accent"
+            className="flex items-center justify-center text-accent-soft"
           >
             <Moon size={15} />
           </motion.span>

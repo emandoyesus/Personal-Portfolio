@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import ThemeProvider from "@/components/ThemeProvider";
+import { buildThemeCss } from "@/lib/theme";
 import "./globals.css";
 
 const playfair = localFont({
@@ -50,6 +51,12 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable}`}
     >
       <body className="relative flex min-h-full flex-col bg-ink text-chalk">
+        {/* Active colour palette — single source of truth for every theme token */}
+        <style
+          id="theme-vars"
+          dangerouslySetInnerHTML={{ __html: buildThemeCss() }}
+        />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

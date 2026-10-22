@@ -41,7 +41,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero-section"
-      className="relative flex w-full flex-col items-center gap-10 overflow-hidden px-6 pt-24 pb-12 sm:px-10 sm:pt-28 lg:gap-14 dark:bg-[#070a12]"
+      className="relative flex w-full flex-col items-center gap-10 overflow-hidden px-6 pt-24 pb-12 sm:px-10 sm:pt-28 lg:gap-14 bg-hero"
     >
       {/* Architectural blueprint grid - Hero Section Only */}
       <div
@@ -52,7 +52,7 @@ export default function HeroSection() {
       {/* Atmospheric subtle deep midnight wash on the right behind hero figure */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-1/4 h-[550px] w-[650px] rounded-full bg-gradient-to-bl from-accent/15 via-accent/5 to-transparent dark:from-[#121c42]/20 dark:via-[#0a1028]/15 blur-3xl opacity-50 dark:opacity-60 z-0"
+        className="pointer-events-none absolute right-0 top-1/4 h-[550px] w-[650px] rounded-full bg-gradient-to-bl from-accent/15 via-accent/5 to-transparent dark:from-accent-deep/25 dark:via-accent-glow/15 blur-3xl opacity-50 dark:opacity-60 z-0"
       />
 
       {/* Smooth transitional gradient fade at bottom into global solid dark background */}
@@ -66,8 +66,8 @@ export default function HeroSection() {
         aria-hidden="true"
         className="pointer-events-none absolute top-0 left-1/2 h-[150px] w-[840px] max-w-full -translate-x-1/2 overflow-hidden opacity-50 z-0"
       >
-        <span className="absolute h-px w-[120px] top-[14px] left-[10px] bg-gradient-to-r from-transparent via-[#2e3794]/60 to-transparent" />
-        <span className="absolute h-px w-[140px] top-[52px] right-[40px] bg-gradient-to-r from-transparent via-[#2e3794]/50 to-transparent" />
+        <span className="absolute h-px w-[120px] top-[14px] left-[10px] bg-gradient-to-r from-transparent via-accent-2/60 to-transparent" />
+        <span className="absolute h-px w-[140px] top-[52px] right-[40px] bg-gradient-to-r from-transparent via-accent-2/50 to-transparent" />
       </div>
 
       <div className="relative z-10 pointer-events-none grid w-full max-w-[1240px] items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
@@ -80,9 +80,9 @@ export default function HeroSection() {
         >
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3 py-1 border border-blue-600/30 dark:border-hairline bg-blue-500/10 dark:bg-surface/80 text-xs font-mono text-blue-700 dark:text-[#828ddc] font-medium pointer-events-auto"
+            className="inline-flex items-center gap-2 px-3 py-1 border border-accent-2/30 dark:border-hairline bg-accent-2/10 dark:bg-surface/80 text-xs font-mono text-accent-soft font-medium pointer-events-auto"
           >
-            <span className="size-1.5 rounded-full bg-blue-600 dark:bg-[#3d49b8] animate-pulse" />
+            <span className="size-1.5 rounded-full bg-accent-2 animate-pulse" />
             <span>FULL STACK DEVELOPER • MEKELLE, ETHIOPIA</span>
           </motion.div>
 
@@ -96,7 +96,7 @@ export default function HeroSection() {
               <a
                 href="#projects"
                 aria-label="View Projects"
-                className="inline-grid size-10 sm:size-12 place-items-center border border-hairline bg-surface text-muted transition-all duration-300 hover:border-accent hover:text-accent hover:scale-105 pointer-events-auto"
+                className="inline-grid size-10 sm:size-12 place-items-center border border-hairline bg-surface text-muted transition-all duration-300 hover:border-accent hover:text-accent-soft hover:scale-105 pointer-events-auto"
               >
                 <ArrowUpRight className="size-5" />
               </a>
@@ -126,7 +126,7 @@ export default function HeroSection() {
                 aria-hidden="true"
                 viewBox="0 0 148 56"
                 fill="none"
-                className="pointer-events-none text-blue-600 dark:text-[#4d5bd6] hidden w-[90px] -translate-y-2 sm:block opacity-75 ml-3"
+                className="pointer-events-none text-accent-2-soft hidden w-[90px] -translate-y-2 sm:block opacity-75 ml-3"
               >
                 <path
                   d="M140 8 C 104 12, 58 26, 20 46"
@@ -185,7 +185,7 @@ export default function HeroSection() {
         <a
           href="#projects"
           aria-label="Scroll to featured projects"
-          className="grid size-10 place-items-center text-muted transition-colors hover:text-accent"
+          className="grid size-10 place-items-center text-muted transition-colors hover:text-accent-soft"
         >
           <ChevronDown className="size-6 animate-bounce" />
         </a>

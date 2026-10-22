@@ -95,10 +95,10 @@ export default function ProjectShowcase() {
 
   return (
     <section id="projects" className="relative z-10 py-24 sm:py-32 px-6 sm:px-10 overflow-hidden">
-      {/* Soft atmospheric ambient transition glow from hero #181c66 */}
+      {/* Soft atmospheric ambient transition glow carried over from the hero */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[300px] bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(24,28,102,0.18)_0%,transparent_70%)] blur-2xl -z-10"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[300px] bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,var(--glow-fade)_0%,transparent_70%)] blur-2xl -z-10"
       />
       <div className="max-w-[1250px] mx-auto">
         {/* Section Heading */}
@@ -109,7 +109,7 @@ export default function ProjectShowcase() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center text-center max-w-[720px] mx-auto mb-16"
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3 font-mono">
+          <p className="text-xs uppercase tracking-[0.25em] text-accent-soft mb-3 font-mono">
             Featured Projects
           </p>
           <h2 className="font-display text-4xl sm:text-6xl text-chalk font-normal tracking-tight mb-4">
@@ -118,7 +118,7 @@ export default function ProjectShowcase() {
           <p className="font-sans text-base sm:text-lg text-muted">
             Real applications built and shipped to production for real users and organizations.
           </p>
-          <div className="inline-flex lg:hidden items-center gap-1.5 text-xs font-mono text-accent/80 mt-4 select-none">
+          <div className="inline-flex lg:hidden items-center gap-1.5 text-xs font-mono text-accent-soft/80 mt-4 select-none">
             <span>Swipe projects to explore</span>
             <span className="animate-pulse">→</span>
           </div>
@@ -163,11 +163,11 @@ export default function ProjectShowcase() {
                     </div>
 
                     <div className="flex items-center gap-1.5 px-3 py-1 rounded bg-ink/70 border border-hairline text-[11px] font-mono text-chalk/90 max-w-[220px] sm:max-w-xs truncate">
-                      <Lock size={10} className="text-accent shrink-0" />
+                      <Lock size={10} className="text-accent-soft shrink-0" />
                       <span className="truncate">{project.displayUrl}</span>
                     </div>
 
-                    <span className="text-[10px] font-mono text-accent uppercase tracking-wider hidden sm:inline-block">
+                    <span className="text-[10px] font-mono text-accent-soft uppercase tracking-wider hidden sm:inline-block">
                       {project.year}
                     </span>
                   </div>
@@ -182,10 +182,10 @@ export default function ProjectShowcase() {
                     />
 
                     {/* Floating Visit badge pill */}
-                    <div className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-ink/90 border border-hairline text-chalk text-xs font-mono backdrop-blur-md shadow-lg transition-all duration-300 group-hover/card:border-accent group-hover/card:text-accent">
-                      <Eye size={12} className="text-accent" />
+                    <div className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-ink/90 border border-hairline text-chalk text-xs font-mono backdrop-blur-md shadow-lg transition-all duration-300 group-hover/card:border-accent group-hover/card:text-accent-soft">
+                      <Eye size={12} className="text-accent-soft" />
                       <span>Preview Live</span>
-                      <ArrowUpRight size={13} className="text-accent ml-0.5 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 transition-transform" />
+                      <ArrowUpRight size={13} className="text-accent-soft ml-0.5 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 transition-transform" />
                     </div>
 
                     {/* Left corner tag badge */}
@@ -202,12 +202,12 @@ export default function ProjectShowcase() {
                       href={project.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-sans text-2xl font-bold text-chalk group-hover/card:text-accent transition-colors inline-flex items-center gap-2"
+                      className="font-sans text-2xl font-bold text-chalk group-hover/card:text-accent-soft transition-colors inline-flex items-center gap-2"
                     >
                       <span>{project.title}</span>
                       <ExternalLink size={16} className="text-muted" />
                     </a>
-                    <p className="font-mono text-xs text-accent mt-0.5">
+                    <p className="font-mono text-xs text-accent-soft mt-0.5">
                       {project.displayUrl} • {project.year}
                     </p>
                   </div>
@@ -217,7 +217,7 @@ export default function ProjectShowcase() {
                 <div className="space-y-2.5 mb-6">
                   {project.highlights.map((bullet, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-sm text-chalk/80 leading-relaxed font-sans">
-                      <CheckCircle2 size={15} className="text-accent shrink-0 mt-1" />
+                      <CheckCircle2 size={15} className="text-accent-soft shrink-0 mt-1" />
                       <span>{bullet}</span>
                     </div>
                   ))}

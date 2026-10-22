@@ -76,7 +76,7 @@ export default function ProfileSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center text-center max-w-[720px] mx-auto mb-16"
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3 font-mono">
+          <p className="text-xs uppercase tracking-[0.25em] text-accent-soft mb-3 font-mono">
             Background &amp; Profile
           </p>
           <h2 className="font-display text-4xl sm:text-6xl text-chalk font-normal tracking-tight mb-4">
@@ -126,7 +126,7 @@ export default function ProfileSection() {
 
               {/* Location badge on bottom right of photo */}
               <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 bg-ink/85 px-2.5 py-1 backdrop-blur-md border border-hairline font-mono text-[11px] text-chalk/90 z-10 select-none">
-                <MapPin size={12} className="text-accent" />
+                <MapPin size={12} className="text-accent-soft" />
                 <span>Mekelle, Ethiopia</span>
               </span>
             </div>
@@ -136,7 +136,7 @@ export default function ProfileSection() {
               <h3 className="font-sans text-2xl font-bold text-chalk">
                 Emandoyesus Tesfaye
               </h3>
-              <p className="font-sans text-sm text-accent font-mono">
+              <p className="font-sans text-sm text-accent-soft font-mono">
                 Full Stack Developer • Mobile App Developer
               </p>
               <p className="font-sans text-sm text-muted leading-relaxed mt-1">
@@ -147,37 +147,37 @@ export default function ProfileSection() {
             {/* Contact quick links */}
             <div className="space-y-2.5 mb-8 border-y border-hairline py-4 font-mono text-xs text-muted">
               <div className="flex items-center gap-2.5">
-                <MapPin size={14} className="text-accent shrink-0" />
+                <MapPin size={14} className="text-accent-soft shrink-0" />
                 <span className="text-chalk/90">Mekelle, Ethiopia</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail size={14} className="text-accent shrink-0" />
+                <Mail size={14} className="text-accent-soft shrink-0" />
                 <a
                   href="mailto:emmandoyesus@gmail.com"
-                  className="text-chalk/90 hover:text-accent transition-colors"
+                  className="text-chalk/90 hover:text-accent-soft transition-colors"
                 >
                   emmandoyesus@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Linkedin size={14} className="text-accent shrink-0" />
+                <Linkedin size={14} className="text-accent-soft shrink-0" />
                 <a
                   href="https://www.linkedin.com/in/emandoyesus/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-chalk/90 hover:text-accent transition-colors flex items-center gap-1 truncate"
+                  className="text-chalk/90 hover:text-accent-soft transition-colors flex items-center gap-1 truncate"
                 >
                   <span className="truncate">@emandoyesus</span>
                   <ExternalLink size={10} className="text-muted shrink-0" />
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <TelegramIcon className="size-[14px] text-accent shrink-0" />
+                <TelegramIcon className="size-[14px] text-accent-soft shrink-0" />
                 <a
                   href="https://t.me/vintage_01"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-chalk/90 hover:text-accent transition-colors flex items-center gap-1 truncate"
+                  className="text-chalk/90 hover:text-accent-soft transition-colors flex items-center gap-1 truncate"
                 >
                   <span className="truncate">@vintage_01</span>
                   <ExternalLink size={10} className="text-muted shrink-0" />
@@ -191,7 +191,7 @@ export default function ProfileSection() {
                 href="#contact"
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-chalk border border-hairline bg-surface hover:border-accent/60 hover:text-accent transition-all flex-1"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-chalk border border-hairline bg-surface hover:border-accent/60 hover:text-accent-soft transition-all flex-1"
               >
                 <Send size={14} />
                 <span>Get in touch</span>
@@ -223,7 +223,7 @@ export default function ProfileSection() {
                 onClick={() => setActiveTab("about")}
                 className={`relative flex-1 py-3.5 sm:py-4 px-2 sm:px-4 text-center sm:text-left font-sans text-xs sm:text-sm font-medium transition-colors border-r border-hairline flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 ${
                   activeTab === "about"
-                    ? "text-accent bg-card"
+                    ? "text-accent-soft bg-card"
                     : "text-muted hover:text-chalk"
                 }`}
               >
@@ -243,7 +243,7 @@ export default function ProfileSection() {
                 onClick={() => setActiveTab("stack")}
                 className={`relative flex-1 py-3.5 sm:py-4 px-2 sm:px-4 text-center sm:text-left font-sans text-xs sm:text-sm font-medium transition-colors border-r border-hairline flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 ${
                   activeTab === "stack"
-                    ? "text-accent bg-card"
+                    ? "text-accent-soft bg-card"
                     : "text-muted hover:text-chalk"
                 }`}
               >
@@ -263,7 +263,7 @@ export default function ProfileSection() {
                 onClick={() => setActiveTab("education")}
                 className={`relative flex-1 py-3.5 sm:py-4 px-2 sm:px-4 text-center sm:text-left font-sans text-xs sm:text-sm font-medium transition-colors flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 ${
                   activeTab === "education"
-                    ? "text-accent bg-card"
+                    ? "text-accent-soft bg-card"
                     : "text-muted hover:text-chalk"
                 }`}
               >
@@ -305,7 +305,7 @@ export default function ProfileSection() {
                   {/* Facts grid from CV */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-px border border-hairline bg-hairline mt-6">
                     <div className="p-4 bg-card flex items-center gap-3">
-                      <MapPin size={16} className="text-accent shrink-0" />
+                      <MapPin size={16} className="text-accent-soft shrink-0" />
                       <div>
                         <span className="block text-xs uppercase text-muted font-mono">Location</span>
                         <span className="text-sm font-medium text-chalk">Mekelle, Ethiopia</span>
@@ -327,14 +327,14 @@ export default function ProfileSection() {
                       </div>
                     </div>
                     <div className="p-4 bg-card flex items-center gap-3">
-                      <Code2 size={16} className="text-accent shrink-0" />
+                      <Code2 size={16} className="text-accent-soft shrink-0" />
                       <div>
                         <span className="block text-xs uppercase text-muted font-mono">Primary Focus</span>
                         <span className="text-sm font-medium text-chalk">Web &amp; Mobile Engineering</span>
                       </div>
                     </div>
                     <div className="p-4 bg-card flex items-center gap-3">
-                      <Globe2 size={16} className="text-accent shrink-0" />
+                      <Globe2 size={16} className="text-accent-soft shrink-0" />
                       <div>
                         <span className="block text-xs uppercase text-muted font-mono">Languages</span>
                         <span className="text-sm font-medium text-chalk">English (Fluent) • Amharic (Native)</span>
@@ -377,7 +377,7 @@ export default function ProfileSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {skillGroups.map((grp) => (
                       <div key={grp.category} className="p-4 bg-surface/60 border border-hairline">
-                        <span className="block text-xs font-mono uppercase text-accent mb-2.5">
+                        <span className="block text-xs font-mono uppercase text-accent-soft mb-2.5">
                           {grp.category}
                         </span>
                         <div className="flex flex-wrap gap-2">
@@ -423,7 +423,7 @@ export default function ProfileSection() {
                           Mekelle University
                         </h4>
                       </div>
-                      <span className="text-xs font-mono px-2 py-0.5 border border-accent/40 text-accent">
+                      <span className="text-xs font-mono px-2 py-0.5 border border-accent/40 text-accent-soft">
                         2023 — 2027
                       </span>
                     </div>
@@ -437,7 +437,7 @@ export default function ProfileSection() {
 
                   {/* Nanodegree Certificates */}
                   <div>
-                    <h5 className="text-xs font-mono uppercase tracking-wider text-accent mb-3 flex items-center gap-2">
+                    <h5 className="text-xs font-mono uppercase tracking-wider text-accent-soft mb-3 flex items-center gap-2">
                       <SiUdacity className="size-4 text-[#01B3E3]" />
                       <span>Certified Nanodegrees</span>
                     </h5>
@@ -458,22 +458,22 @@ export default function ProfileSection() {
                                 <SiUdacity className="size-4 text-[#01B3E3]" />
                               </div>
                               <div className="space-y-1">
-                                <p className="text-sm font-semibold text-chalk group-hover:text-accent transition-colors flex items-center gap-1.5">
+                                <p className="text-sm font-semibold text-chalk group-hover:text-accent-soft transition-colors flex items-center gap-1.5">
                                   <span>{cert.title}</span>
-                                  <ExternalLink size={13} className="text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                                  <ExternalLink size={13} className="text-muted group-hover:text-accent-soft group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
                                 </p>
                                 <p className="text-xs text-muted font-sans leading-relaxed">
                                   <span className="text-[#01B3E3] font-medium">{cert.issuer}</span> • {cert.description}
                                 </p>
                                 <div className="pt-1 flex items-center gap-2">
-                                  <span className="inline-flex items-center gap-1 text-[11px] font-mono text-accent/80 group-hover:text-accent transition-colors">
+                                  <span className="inline-flex items-center gap-1 text-[11px] font-mono text-accent-soft/80 group-hover:text-accent-soft transition-colors">
                                     <span>Verify Certificate</span>
                                     <span className="group-hover:translate-x-0.5 transition-transform">↗</span>
                                   </span>
                                 </div>
                               </div>
                             </div>
-                            <span className="text-xs font-mono text-accent shrink-0 px-2 py-0.5 border border-accent/30 bg-accent/5">
+                            <span className="text-xs font-mono text-accent-soft shrink-0 px-2 py-0.5 border border-accent/30 bg-accent/5">
                               {cert.date}
                             </span>
                           </div>
@@ -486,9 +486,9 @@ export default function ProfileSection() {
                   <div className="p-4 border border-hairline bg-surface/20 flex items-center justify-between">
                     <span className="text-xs uppercase font-mono text-muted">Spoken Languages</span>
                     <div className="flex items-center gap-4 text-xs font-mono text-chalk">
-                      <span>English: <strong className="text-accent font-semibold">Fluent</strong></span>
+                      <span>English: <strong className="text-accent-soft font-semibold">Fluent</strong></span>
                       <span>•</span>
-                      <span>Amharic: <strong className="text-accent font-semibold">Native</strong></span>
+                      <span>Amharic: <strong className="text-accent-soft font-semibold">Native</strong></span>
                     </div>
                   </div>
                 </div>
@@ -499,7 +499,7 @@ export default function ProfileSection() {
           {/* Bottom tag line */}
           <div className="pt-6 mt-6 border-t border-hairline flex items-center justify-between text-xs text-muted font-mono">
             <span>Mekelle Univ • 2023-2027</span>
-            <span className="text-accent">CLEAN CODE • DISCIPLINE • REAL PRODUCTS</span>
+            <span className="text-accent-soft">CLEAN CODE • DISCIPLINE • REAL PRODUCTS</span>
           </div>
         </div>
       </motion.div>

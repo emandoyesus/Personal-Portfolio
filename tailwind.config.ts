@@ -11,16 +11,22 @@ const config: Config = {
     extend: {
       colors: {
         ink: "rgb(var(--bg-ink-rgb) / <alpha-value>)",
+        hero: "rgb(var(--bg-hero-rgb) / <alpha-value>)",
         surface: "rgb(var(--bg-surface-rgb) / <alpha-value>)",
         card: "rgb(var(--bg-card-rgb) / <alpha-value>)",
         wash: "rgb(var(--bg-wash-rgb) / <alpha-value>)",
         chalk: "rgb(var(--text-chalk-rgb) / <alpha-value>)",
         muted: "rgb(var(--text-muted-rgb) / <alpha-value>)",
         dim: "rgb(var(--text-dim-rgb) / <alpha-value>)",
+        "icon-muted": "rgb(var(--text-icon-muted-rgb) / <alpha-value>)",
         hairline: "var(--border-hairline)",
         "hairline-strong": "var(--border-hairline-strong)",
         accent: "rgb(var(--accent-rgb) / <alpha-value>)",
-        "accent-secondary": "#6b8f71",
+        "accent-soft": "rgb(var(--accent-soft-rgb) / <alpha-value>)",
+        "accent-deep": "rgb(var(--accent-deep-rgb) / <alpha-value>)",
+        "accent-glow": "rgb(var(--accent-glow-rgb) / <alpha-value>)",
+        "accent-2": "rgb(var(--accent-2-rgb) / <alpha-value>)",
+        "accent-2-soft": "rgb(var(--accent-2-soft-rgb) / <alpha-value>)",
         positive: "#22c55e",
       },
       fontFamily: {

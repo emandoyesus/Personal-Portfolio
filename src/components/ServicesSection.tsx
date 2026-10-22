@@ -113,7 +113,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center text-center max-w-[700px] mx-auto mb-16"
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3 font-mono">
+          <p className="text-xs uppercase tracking-[0.25em] text-accent-soft mb-3 font-mono">
             Core Competencies
           </p>
           <h2 className="font-display text-4xl sm:text-6xl text-chalk font-normal tracking-tight mb-4">
@@ -122,7 +122,7 @@ export default function ServicesSection() {
           <p className="font-sans text-base sm:text-lg text-muted">
             Direct capabilities and specialized engineering solutions for real-world products.
           </p>
-          <div className="inline-flex md:hidden items-center gap-1.5 text-xs font-mono text-accent/80 mt-4 select-none">
+          <div className="inline-flex md:hidden items-center gap-1.5 text-xs font-mono text-accent-soft/80 mt-4 select-none">
             <span>Swipe services to explore</span>
             <span className="animate-pulse">→</span>
           </div>
@@ -155,16 +155,16 @@ export default function ServicesSection() {
               <div>
                 {/* Header row */}
                 <div className="flex items-center justify-between mb-5">
-                  <span className="font-mono text-xs text-accent tracking-wider font-semibold">
+                  <span className="font-mono text-xs text-accent-soft tracking-wider font-semibold">
                     {svc.num}
                   </span>
-                  <div className="grid size-9 place-items-center bg-surface border border-hairline text-muted group-hover:text-accent group-hover:border-accent/50 group-hover:scale-105 transition-all">
+                  <div className="grid size-9 place-items-center bg-surface border border-hairline text-muted group-hover:text-accent-soft group-hover:border-accent/50 group-hover:scale-105 transition-all">
                     <svc.icon size={16} />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-sans text-xl font-semibold text-chalk mb-2.5 group-hover:text-accent transition-colors">
+                <h3 className="font-sans text-xl font-semibold text-chalk mb-2.5 group-hover:text-accent-soft transition-colors">
                   {svc.title}
                 </h3>
 

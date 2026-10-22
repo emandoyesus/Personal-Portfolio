@@ -71,7 +71,7 @@ export function AddToBasketButton({
       ref={scope}
       href={href}
       onClick={handleClick}
-      className={`group/btn relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-[15px] font-semibold text-ink bg-chalk dark:hover:bg-white hover:bg-chalk/90 hover:shadow-[0_0_24px_rgba(46,55,148,0.4)] transition-all duration-300 select-none overflow-hidden ${className}`}
+      className={`group/btn relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-[15px] font-semibold text-ink bg-chalk dark:hover:bg-white hover:bg-chalk/90 hover:shadow-[0_0_24px_var(--shadow-accent-strong)] transition-all duration-300 select-none overflow-hidden ${className}`}
     >
       <span>{label}</span>
 

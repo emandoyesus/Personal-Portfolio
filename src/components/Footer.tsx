@@ -135,7 +135,7 @@ export default function Footer() {
               {/* Column 1: Identity & Bio */}
               <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
                 <div className="flex items-center gap-3">
-                  <span className="flex size-9 items-center justify-center border border-hairline bg-surface/50 text-accent font-serif font-bold text-sm">
+                  <span className="flex size-9 items-center justify-center border border-hairline bg-surface/50 text-accent-soft font-serif font-bold text-sm">
                     ET
                   </span>
                   <div>
@@ -158,7 +158,7 @@ export default function Footer() {
                     <span>Available for new projects</span>
                   </div>
                   <div className="inline-flex items-center gap-1.5">
-                    <MapPin size={12} className="text-accent shrink-0" />
+                    <MapPin size={12} className="text-accent-soft shrink-0" />
                     <span>Mekelle, Ethiopia (UTC+3)</span>
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export default function Footer() {
 
               {/* Column 2: Navigation */}
               <div className="flex flex-col">
-                <p className="font-mono text-xs uppercase tracking-wider text-accent font-semibold mb-4">
+                <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
                   NAVIGATION
                 </p>
 
@@ -186,7 +186,7 @@ export default function Footer() {
 
               {/* Column 3: Connect & Socials */}
               <div className="flex flex-col">
-                <p className="font-mono text-xs uppercase tracking-wider text-accent font-semibold mb-4">
+                <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
                   CONNECT
                 </p>
 
@@ -212,7 +212,7 @@ export default function Footer() {
 
               {/* Column 4: Actions */}
               <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
-                <p className="font-mono text-xs uppercase tracking-wider text-accent font-semibold mb-4">
+                <p className="font-mono text-xs uppercase tracking-wider text-accent-soft font-semibold mb-4">
                   ACTIONS
                 </p>
 
@@ -224,9 +224,9 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     whileHover={{ y: -1 }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl border border-accent/40 hover:border-accent dark:bg-[#14192b] dark:hover:bg-[#1a2139] bg-accent/10 hover:bg-accent/20 text-accent font-sans font-medium text-xs tracking-tight shadow-[0_0_15px_-3px_rgba(112,126,255,0.15)] hover:shadow-[0_0_20px_-2px_rgba(112,126,255,0.3)] transition-all w-full select-none cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl border border-accent/40 hover:border-accent bg-card hover:bg-wash text-accent-soft font-sans font-medium text-xs tracking-tight shadow-[0_0_15px_-3px_var(--shadow-accent)] hover:shadow-[0_0_20px_-2px_var(--shadow-accent-strong)] transition-all w-full select-none cursor-pointer"
                   >
-                    <BsFiletypePdf className="size-4 text-accent transition-colors" />
+                    <BsFiletypePdf className="size-4 text-accent-soft transition-colors" />
                     <span>Download Resume</span>
                   </motion.a>
 
