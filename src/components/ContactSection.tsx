@@ -59,12 +59,6 @@ export default function ContactSection() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="bg-card border border-hairline p-6 sm:p-12 relative overflow-hidden shadow-2xl"
         >
-          {/* Subtle navy ambient glow */}
-          <div
-            aria-hidden="true"
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-accent-deep/30 rounded-full blur-[100px] pointer-events-none"
-          />
-
           {/* Content (Elevated above background canvas) */}
           <div className="relative z-10">
             {/* Header */}

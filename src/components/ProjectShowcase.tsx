@@ -95,11 +95,6 @@ export default function ProjectShowcase() {
 
   return (
     <section id="projects" className="relative z-10 py-24 sm:py-32 px-6 sm:px-10 overflow-hidden">
-      {/* Soft atmospheric ambient transition glow carried over from the hero */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[300px] bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,var(--glow-fade)_0%,transparent_70%)] blur-2xl -z-10"
-      />
       <div className="max-w-[1250px] mx-auto">
         {/* Section Heading */}
         <motion.div

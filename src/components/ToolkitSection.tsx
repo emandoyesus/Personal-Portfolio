@@ -42,12 +42,6 @@ export default function ToolkitSection() {
       className="stack relative z-10 py-16 sm:py-28 overflow-hidden border-t border-hairline bg-surface/20"
       aria-labelledby="stack-h"
     >
-      {/* Centered subtle ambient glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent-deep/20 blur-[120px] rounded-full -z-10"
-      />
-
       <div className="shell max-w-[1240px] mx-auto px-6 sm:px-10 mb-10 sm:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -23,7 +23,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -33,7 +33,7 @@ const portraitVariants = {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 },
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const, delay: 0.2 },
   },
 };
 
@@ -49,11 +49,7 @@ export default function HeroSection() {
         className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(to_right,var(--grid-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-line)_1px,transparent_1px)] bg-[size:110px_110px] [mask-image:radial-gradient(ellipse_110%_90%_at_50%_35%,#000_75%,transparent_100%)]"
       />
 
-      {/* Atmospheric subtle deep midnight wash on the right behind hero figure */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-1/4 h-[550px] w-[650px] rounded-full bg-gradient-to-bl from-accent/15 via-accent/5 to-transparent dark:from-accent-deep/25 dark:via-accent-glow/15 blur-3xl opacity-50 dark:opacity-60 z-0"
-      />
+      
 
       {/* Smooth transitional gradient fade at bottom into global solid dark background */}
       <div
