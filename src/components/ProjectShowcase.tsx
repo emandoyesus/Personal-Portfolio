@@ -19,6 +19,31 @@ interface RealProject {
 
 const projects: RealProject[] = [
   {
+    title: "All Nighter",
+    year: "2026",
+    category: "Real-time Collaborative Focus App",
+    url: "https://all-nighter.pro.et",
+    displayUrl: "all-nighter.pro.et",
+    badge: "Open Source · Live",
+    accentGradient: "from-violet-950/70 via-indigo-950 to-black",
+    thumbnail: "/projects/all-nighter.webp",
+    tags: [
+      "SvelteKit",
+      "Svelte 5",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "MQTT",
+      "Supabase",
+      "GSAP",
+      "YouTube IFrame API",
+    ],
+    highlights: [
+      "Built a real-time shared focus room where everyone hears the same synchronized audio stream, with clock-drift compensation, a collaborative queue, live presence, and a countdown to dawn.",
+      "Engineered public and private rooms with SHA-256 passkey verification, knock-to-enter approvals, host/admin role management, and automatic dawn archival into a browsable logbook.",
+      "Shipped a distraction-free fullscreen desk HUD with focus modes, synthesized audio chimes, midnight wallpapers, and nocturnal profiles with tiered achievement badges.",
+    ],
+  },
+  {
     title: "Addisalem Film Academy",
     year: "2026",
     category: "Fullstack Web & Admin Portal",
@@ -111,7 +136,7 @@ export default function ProjectShowcase() {
             Production &amp; Shipped Work.
           </h2>
           <p className="font-sans text-base sm:text-lg text-muted">
-            Real applications built and shipped to production for real users and organizations.
+            Real applications built and shipped — production client work and open-source builds.
           </p>
           <div className="inline-flex lg:hidden items-center gap-1.5 text-xs font-mono text-accent-soft/80 mt-4 select-none">
             <span>Swipe projects to explore</span>
