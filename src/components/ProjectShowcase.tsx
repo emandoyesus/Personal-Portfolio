@@ -51,7 +51,7 @@ const projects: RealProject[] = [
     displayUrl: "addisalemfilms.com",
     badge: "Live Production in Dessie",
     accentGradient: "from-indigo-950/70 via-stone-900 to-black",
-    thumbnail: "/projects/addisalem-screen.png",
+    thumbnail: "/projects/addisalem-screen.webp",
     tags: [
       "React 19",
       "Vite",
