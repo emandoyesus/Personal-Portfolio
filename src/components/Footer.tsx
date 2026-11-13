@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { MapPin } from "lucide-react";
 import {
   CatGithubIcon,
@@ -89,8 +90,14 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-hairline/40 items-start">
             <div className="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col">
               <div className="flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center border border-hairline bg-surface/50 text-accent-soft font-serif font-bold text-sm">
-                  ET
+                <span className="relative flex size-9 shrink-0 items-center justify-center overflow-hidden border border-hairline bg-surface/50">
+                  <Image
+                    src="/emando-avatar.webp"
+                    alt="Emandoyesus Tesfaye"
+                    fill
+                    sizes="36px"
+                    className="object-cover"
+                  />
                 </span>
                 <div>
                   <span className="font-sans font-semibold text-chalk text-sm tracking-tight block">
