@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#040D0F"/>
-  <rect x="0.5" y="0.5" width="31" height="31" fill="none" stroke="#051516" stroke-width="1"/>
-  <text x="6.5" y="23.5" font-family="Georgia, 'Playfair Display', serif" font-size="21" font-weight="700" fill="#F5FFFC">E</text>
-  <circle cx="24.5" cy="8.5" r="3" fill="#10474A"/>
-</svg>
