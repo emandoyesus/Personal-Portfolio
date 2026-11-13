@@ -81,10 +81,10 @@ export default function Footer() {
   };
 
   return (
-    <div id="footer-reveal-container" className="relative w-full">
+    <div id="footer-reveal-container" className="dark relative w-full">
       <footer
         ref={contentRef}
-        className="relative w-full border-t border-hairline dark:bg-black bg-surface/95 pt-12 md:pt-16 pb-12 px-6 sm:px-10 overflow-hidden shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.08)] dark:shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.95)]"
+        className="relative w-full border-t border-hairline bg-black pt-12 md:pt-16 pb-12 px-6 sm:px-10 overflow-hidden shadow-[0_-24px_48px_-12px_rgba(0,0,0,0.95)]"
       >
         <div className="max-w-[1200px] mx-auto flex flex-col gap-10">
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-hairline/40 items-start">
